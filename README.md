@@ -2,6 +2,11 @@
 
 ---
 
+1.数据库mongodb，和redis
+2.数据结构avro
+3.前端数据json
+4.模板scalate，
+
 ###1. install jdk 7
 [java](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 ###2. install scala 2.10.2
