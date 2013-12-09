@@ -1,7 +1,7 @@
 package net.imiui.wpt.models
 
-import net.imiui.wpt.utils.ConnectDB
-import net.imiui.wpt.utils.DataSerializer._
+import net.imiui.wpt.util.ConnectDB
+import net.imiui.wpt.util.DataSerializer._
 
 import com.mongodb.casbah.Imports._
 

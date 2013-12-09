@@ -1,48 +1,27 @@
 import ScalateKeys._
 
-com.github.retronym.SbtOneJar.oneJarSettings
-
-org.scalastyle.sbt.ScalastylePlugin.Settings
-
 seq(scalateSettings:_*)
 
-seq(sbtavro.SbtAvro.avroSettings : _*)
-
-seq(Revolver.settings: _*)
-
-// seq(Twirl.settings: _*)
-
-// seq(lessSettings:_*)
-
-// seq(coffeeSettings: _*)
-
-seq(jsSettings : _*)
-
-seq(lessSettings : _*)
-
-// Scalate Precompilation and Bindings
-scalateTemplateConfig in Compile <<= (sourceDirectory in Compile){ base =>
+scalateTemplateConfig in Compile <<= (sourceDirectory in Compile) { base =>
   Seq(
     TemplateConfig(
       base / "scala" / "views",
-      Seq(),
-      Seq(),
-      Some("")
+      Seq("import net.imiui.wpt.util.Helper._"),
+      Seq(Binding("env", "com.twitter.finatra.config.env()")),
+      Some("web")
     )
   )
 }
 
-name := "wpt"
-
-version := "1.0"
-
-scalaVersion := "2.10.3"
-
-mainClass in Revolver.reStart := Some("net.imiui.wpt.App")
+seq(sbtavro.SbtAvro.avroSettings : _*)
 
 (stringType in avroConfig) := "String"
 
-// seq(com.github.bigtoast.sbtthrift.ThriftPlugin.thriftSettings: _*)
+seq(Revolver.settings: _*)
+
+mainClass in Revolver.reStart := Some("net.imiui.wpt.App")
+
+seq(jsSettings: _*)
 
 (sourceDirectories in (Compile, JsKeys.js)) <<=
   (sourceDirectory in Compile) {
@@ -53,6 +32,12 @@ mainClass in Revolver.reStart := Some("net.imiui.wpt.App")
       )
   }
 
+(Keys.compile in Compile) <<= Keys.compile in Compile dependsOn (JsKeys.js in Compile)
+
+(resourceManaged in (Compile, JsKeys.js)) <<= (sourceDirectory in Compile)(_ / "resources" / "public" / "js")
+
+seq(lessSettings: _*)
+
 (sourceDirectories in (Compile, LessKeys.less)) <<=
   (sourceDirectory in Compile) {
     srcDir =>
@@ -62,18 +47,30 @@ mainClass in Revolver.reStart := Some("net.imiui.wpt.App")
       )
   }
 
-(Keys.compile in Compile) <<= Keys.compile in Compile dependsOn (JsKeys.js in Compile)
-
 (Keys.compile in Compile) <<= Keys.compile in Compile dependsOn (LessKeys.less in Compile)
-
-(resourceManaged in (Compile, JsKeys.js)) <<= (sourceDirectory in Compile)(_ / "resources" / "public" / "js")
 
 (resourceManaged in (Compile, LessKeys.less)) <<= (sourceDirectory in Compile)(_ / "resources" / "public" / "css")
 
+seq(com.github.bigtoast.sbtthrift.ThriftPlugin.thriftSettings: _*)
+
+com.github.retronym.SbtOneJar.oneJarSettings
+
+org.scalastyle.sbt.ScalastylePlugin.Settings
+
+assemblySettings
+
+scalariformSettings
+
+name := "wpt"
+
+version := "0.1.0"
+
+scalaVersion := "2.10.3"
 
 resolvers ++= Seq(
   "OSChina Maven Repo" at "http://maven.oschina.net/content/groups/public/",
-  "Sonatype Releases" at "http://oss.sonatype.org/content/repositories/releases"
+  "Sonatype Releases" at "http://oss.sonatype.org/content/repositories/releases",
+  "twitter" at "http://maven.twttr.com"
 )
 
 libraryDependencies ++= Seq(
@@ -91,5 +88,3 @@ libraryDependencies ++= Seq(
   "com.gensler" %% "scalavro" % "0.6.0",
   "com.twitter" % "finatra" % "1.4.1"
 )
-
-scalariformSettings

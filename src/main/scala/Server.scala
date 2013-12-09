@@ -14,7 +14,7 @@ object App extends FinatraServer {
   // for (u <- us) {
   //   addFilter(new FileService(u.toString))
   // }
-  addFilter(new FileService("/META-INF/resources/webjars/bootstrap/3.0.1/css"))
+  addFilter(new FileService("META-INF/resources/webjars"))
   register(HelloController)
   register(WorldController)
 }

@@ -1,4 +1,4 @@
-package net.imiui.wpt.utils
+package net.imiui.wpt.util
 
 import com.mongodb.casbah.Imports._
 import com.top10.redis._

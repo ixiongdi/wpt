@@ -1,4 +1,4 @@
-package net.imiui.wpt.utils
+package net.imiui.wpt.util
 
 import com.typesafe.config._
 import org.fusesource.scalate._
@@ -92,4 +92,8 @@ class FileService(parent: String) extends com.twitter.finatra.FileService {
       service(request)
     }
   }
+}
+
+object Helper {
+  val s = ""
 }

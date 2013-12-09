@@ -1,40 +1,21 @@
-resolvers += "bigtoast-github" at "http://bigtoast.github.com/repo/"
+addSbtPlugin("com.cavorite" % "sbt-avro" % "0.3.2")
+
+addSbtPlugin("com.eed3si9n" % "sbt-assembly" % "0.10.1")
 
 addSbtPlugin("com.github.bigtoast" % "sbt-thrift" % "0.7")
 
 addSbtPlugin("com.mojolly.scalate" % "xsbt-scalate-generator" % "0.4.2")
 
-addSbtPlugin("org.scala-sbt.plugins" % "sbt-onejar" % "0.8")
+addSbtPlugin("com.timushev.sbt" % "sbt-updates" % "0.1.2")
 
-addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "0.3.2")
+addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.2.1")
 
-resolvers += "sbt-plugin-releases" at "http://repo.scala-sbt.org/scalasbt/sbt-plugin-releases"
+addSbtPlugin("com.untyped" % "sbt-js" % "0.6")
 
-addSbtPlugin("com.cavorite" % "sbt-avro" % "0.3.2")
-
-resolvers += "spray repo" at "http://repo.spray.io" // not needed for sbt >= 0.12
+addSbtPlugin("com.untyped" % "sbt-less" % "0.6")
 
 addSbtPlugin("io.spray" % "sbt-revolver" % "0.7.1")
 
-resolvers += Resolver.url(
-  "bintray-sbt-plugin-releases",
-    url("http://dl.bintray.com/content/sbt/sbt-plugin-releases"))(
-      Resolver.ivyStylePatterns)
+addSbtPlugin("org.scala-sbt.plugins" % "sbt-onejar" % "0.8")
 
-resolvers += "softprops-maven" at "http://dl.bintray.com/content/softprops/maven"
-
-// addSbtPlugin("me.lessis" % "less-sbt" % "0.2.1")
-
-// addSbtPlugin("me.lessis" % "coffeescripted-sbt" % "0.2.3")
-
-resolvers += Resolver.url("untyped", url("http://ivy.untyped.com"))(Resolver.ivyStylePatterns)
-
-// Add whichever plugins you want to use:
-
-addSbtPlugin("com.untyped" % "sbt-js"       % "0.6")
-
-addSbtPlugin("com.untyped" % "sbt-less"     % "0.6")
-
-// addSbtPlugin("io.spray" % "sbt-twirl" % "0.6.2")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.2.1")
+addSbtPlugin("org.scalastyle" % "scalastyle-sbt-plugin" % "0.3.2")

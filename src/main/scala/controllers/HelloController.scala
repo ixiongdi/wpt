@@ -4,7 +4,7 @@ import com.twitter.finatra._
 
 import net.imiui.wpt.models.HelloModel
 import net.imiui.wpt.views.HelloView
-import net.imiui.wpt.utils.Scalate
+import net.imiui.wpt.util.Scalate
 
 object HelloController extends Controller with Scalate {
 
