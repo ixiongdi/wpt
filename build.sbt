@@ -10,6 +10,8 @@ seq(sbtavro.SbtAvro.avroSettings : _*)
 
 seq(Revolver.settings: _*)
 
+// seq(Twirl.settings: _*)
+
 // seq(lessSettings:_*)
 
 // seq(coffeeSettings: _*)
@@ -34,7 +36,9 @@ name := "wpt"
 
 version := "1.0"
 
-scalaVersion := "2.10.2"
+scalaVersion := "2.10.3"
+
+mainClass in Revolver.reStart := Some("net.imiui.wpt.App")
 
 (stringType in avroConfig) := "String"
 

@@ -35,4 +35,6 @@ addSbtPlugin("com.untyped" % "sbt-js"       % "0.6")
 
 addSbtPlugin("com.untyped" % "sbt-less"     % "0.6")
 
+// addSbtPlugin("io.spray" % "sbt-twirl" % "0.6.2")
+
 addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.2.1")
