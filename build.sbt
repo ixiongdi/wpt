@@ -75,16 +75,12 @@ resolvers ++= Seq(
 
 libraryDependencies ++= Seq(
   "com.top10" %% "scala-redis-client" % "1.16.0",
-  "com.twitter" %% "util-core" % "6.4.0",
+  "com.twitter" %% "util-core" % "6.9.0",
   "com.typesafe" % "config" % "1.0.2",
-  "net.databinder" %% "unfiltered-json4s" % "0.7.0",
-  "net.databinder" %% "unfiltered-netty-uploads" % "0.7.0",
-  "net.databinder" %% "unfiltered-netty-websockets" % "0.7.0",
-  "net.databinder" %% "unfiltered-scalate" % "0.7.0",
   "net.debasishg" %% "redisclient" % "2.11",
   "org.apache.thrift" % "libthrift" % "0.9.1",
-  "org.mongodb" %% "casbah" % "2.6.3",
-  "org.webjars" % "bootstrap" % "3.0.1",
+  "org.mongodb" %% "casbah" % "2.6.4",
+  "org.webjars" % "bootstrap" % "3.0.3",
   "com.gensler" %% "scalavro" % "0.6.0",
   "com.twitter" % "finatra" % "1.4.1"
 )
